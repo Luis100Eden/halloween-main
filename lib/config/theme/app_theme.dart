@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
 
-const List<Color> _colorThemes = [
+const colorList = <Color>[
   Colors.blue,
   Colors.teal,
   Colors.green,
-  Colors.yellow,
+  Colors.red,
+  Colors.purple,
+  Colors.deepPurple,
   Colors.orange,
+  Colors.deepOrange,
+  Colors.pink,
+  Colors.pinkAccent
 ];
 
 class AppTheme {
   final int selectedColor;
 
   AppTheme({this.selectedColor = 0})
-      : assert(selectedColor >= 0 && selectedColor < _colorThemes.length,
-            'Solo se encuentra los Colores en un rango de 0 a ${_colorThemes.length - 1}');
-  ThemeData getTheme() {
-    return ThemeData(
-      useMaterial3: true,
-      colorSchemeSeed: _colorThemes[selectedColor],
-      appBarTheme: const AppBarTheme(
-        centerTitle: true,
-      ),
-    );
-  }
+      : assert(selectedColor >= 0 && selectedColor < colorList.length ,
+            'La selección de color no cumple con el rango de 0 asta ${colorList.length - 1}');
+
+  ThemeData getTheme() => ThemeData(
+    useMaterial3: true,
+    colorSchemeSeed: colorList[selectedColor],
+    // appBarTheme: const AppBarTheme(
+    //   centerTitle: true
+    // )
+  );
 }

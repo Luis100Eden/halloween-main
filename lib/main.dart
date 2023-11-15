@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import './config/theme/app_theme.dart';
-import './presentation/screens/home_screen.dart';
+import 'package:widgets_app/config/router/app_router.dart';
+import 'package:widgets_app/config/theme/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MainApp());
+  
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme(selectedColor: 2).getTheme(),
-      home: const HomeScreen(),
+      theme: AppTheme(selectedColor: 0).getTheme(),
+      // home: const HomeScreen(),
+      routerConfig: appRouter,
     );
   }
 }
